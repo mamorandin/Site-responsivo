@@ -1,11 +1,11 @@
-### Desktop:
+###  💻 Desktop:
 ---
 ![webpage](https://i.imgur.com/2os419N.png)
 
-### Tablet:
+### 📲 Tablet:
 ---
 ![webpage](https://i.imgur.com/ELRIkmK.png)
 
-### Celular:
+### 📱 Celular:
 ---
 ![webpage](https://i.imgur.com/MGWyqMI.png)
