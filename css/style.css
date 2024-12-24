@@ -1,10 +1,10 @@
 body {
     background-image: url('../images/bg.jpg');
     background-size: cover;
-    background-position: top center ;
+    background-position: top center;
     background-repeat: no-repeat;
     margin: 0;
-    font-family: arial;
+    font-family: Arial, sans-serif;
     color: #fff;
     min-height: 100vh;
     overflow: hidden;
@@ -12,27 +12,41 @@ body {
 
 .main {
     width: 100%;
-    max-width: 1200px ;
+    max-width: 1200px;
     margin: auto;
 }
 
 header {
     display: flex;
     align-items: center;
-    margin: 40px 0;
+    justify-content: space-between;
+    margin: 40px 20px;
+    padding: 0 10px;
 }
+
 header .menu-icon {
     display: none;
     position: absolute;
     left: 20px;
+    z-index: 10;
 }
 
 header .ham {
-    width: 40px;
-    height: 6px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.ham::before,
+.ham::after {
+    content: "";
+    width: 30px;
+    height: 3px;
     background-color: #fff;
-    border-radius: 3px ;
-    margin-bottom: 4px;
+    display: block;
 }
 
 header .logo {
@@ -43,7 +57,7 @@ header .logo img {
     width: 100%;
 }
 
-nav{
+nav {
     flex: 1;
 }
 
@@ -63,9 +77,69 @@ nav a {
     text-decoration: none;
 }
 
+nav a:hover {
+    text-decoration: underline;
+}
 
+.phone1 {
+    width: auto;
+    position: relative;
+    margin-right: -50px;
+    margin-bottom: 10px;
+    z-index: 2;
+}
+
+.phone2 {
+    width: auto;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Menu Mobile */
+@media (max-width: 700px) {
+    header .menu-icon {
+        display: block;
+    }
+    
+    header .logo {
+margin-left: 220px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    .nav-list {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #000000a4;
+        clip-path: circle(100px at 90% -15%);
+        transition: clip-path 0.5s ease-in-out;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        pointer-events: auto;
+        z-index: 9;
+    }
+
+    .nav-list.open {
+        clip-path: circle(1500px at 90% -15%);
+    }
+}
+
+/* Seção Principal */
 .container {
     display: flex;
+    gap: 20px;
 }
 
 .content-area {
@@ -73,16 +147,18 @@ nav a {
 }
 
 .content-area h1 {
-    font-size: 50px;
-    margin-top: 90px;
+    font-size: 3rem;
+    margin-top: 50px;
 }
-.container p {
-    font-size: 13pt;
+
+.content-area p {
+    font-size: 1rem;
 }
 
 .content-area .cta {
     display: flex;
     margin-top: 40px;
+    gap: 10px;
 }
 
 .cta .button {
@@ -92,7 +168,6 @@ nav a {
     background-color: #29be56;
     color: #FFF;
     text-decoration: none;
-    margin: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -102,33 +177,19 @@ nav a {
     background-color: #3498DB;
 }
 
-.phone-area .phone1 {
-    height: 500px;
-    width: auto;
-    position: relative;
-    z-index: 2;
-    top: 10px;
+.phone-area {
+    text-align: center;
+    margin-top: 30px;
 }
 
+.phone-area .phone1,
 .phone-area .phone2 {
-    height: 500px;
+    height: 450px;
     width: auto;
-    position: relative;
-    margin-left: -100px;
-    z-index: 1;
 }
 
+/* Responsividade (850px) */
 @media (max-width: 850px) {
-
-    body {
-        overflow-y: scroll;
-    }
-
-    header {
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
     .container {
         flex-direction: column;
     }
@@ -138,78 +199,17 @@ nav a {
     }
 
     .content-area h1 {
-        margin-top: 0;
-    }
-
-    .content-area p {
-        margin: 0 40px;
+        font-size: 2.5rem;
+        margin-top: 20px;
     }
 
     .content-area .cta {
         justify-content: center;
-        margin-top: 20px;
     }
 
-    .phone-area {
-        margin-top: 50px;
-        text-align: center;
-    }
-
-    .phone-area .phone1 {
-        top: 0;
-        margin: 0 5px;
-    }
-
+    .phone-area .phone1,
     .phone-area .phone2 {
-        margin-left: 0;
-        margin: 0 5px;
-    }
-
-}
-
-@media (max-width: 700px) {
-
-    body {
-        overflow-y: scroll;
-    }
-
-    header .menu-icon {
-        display: block;
-    }
-
-    nav {
-        display: none;
-    }
-
-    header .logo {
-        width: 100%;
-        text-align: center;
-    }
-
-    header .logo img {
-        width: 200px;
-    }
-
-    .content-area h1 {
-        font-size: 40px;
-    }
-
-    .content-area .cta {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .phone-area {
-        margin-bottom: 50px;
-    }
-
-    .phone-area .phone1 {
-        top: 10px;
-        height: 450px;
-    }
-
-    .phone-area .phone2 {
-        height: 450px;
-        margin-left: -150px;
+        height: 400px;
+        margin: 0 auto;
     }
 }
